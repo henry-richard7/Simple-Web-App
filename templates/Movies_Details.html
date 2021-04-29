@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{Movies.title}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/stylesheets/castStyles.css">
+</head>
+<body>
+<div class="block">
+    <div class="details">
+        <div class="img">
+            <img src="https://image.tmdb.org/t/p/w500{{Movies.poster_path}}"/></div>
+        <div class="info">
+            <h1>{{Movies.title}}</h1>
+            <p><span>Description:</span></p>
+            <p>
+                {{Movies.overview}}
+            </p>
+            <p><span>Country:</span>
+                {% for country in Movies.production_countries %}
+                {{country.name}},
+                {% endfor %}
+            </p>
+            <p><span>Released:</span>
+                {{Movies.release_date}}
+            </p>
+            <p><span>Genre:</span>
+                {%for genre in Movies.genres %}
+                {{genre.name}},
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    <div class="slider-star">
+        {%for crew in Crews.cast %}
+        <div class="item">
+            <a href="#" class="img">
+                <img src="https://image.tmdb.org/t/p/w500{{crew.profile_path}}" alt="{{crew.name}}"/>
+                <h3 class="title">{{crew.name}}</h3>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="trailer">
+        <div>Trailer:</div>
+        <iframe src='https://www.youtube.com/embed/{{youtube}}' frameborder='0' allowfullscreen></iframe>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    $('.slider-star').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+    });
+</script>
+</body>
+</html>
