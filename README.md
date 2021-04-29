@@ -1,5 +1,5 @@
 # Simple-Web-App
-This a simple web app using flask. I have create this app as part of my youtube video tutorial 
+This a simple web app using flask. I have created this app as part of my youtube video tutorial.
 
 # Youtube
 [![](https://img.shields.io/badge/Youtube-Watch%20Now-red?style=for-the-badge&logo=YouTube)](https://www.youtube.com/watch?v=exGBpm3smko)
