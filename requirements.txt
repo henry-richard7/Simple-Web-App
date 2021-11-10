@@ -1,0 +1,3 @@
+Flask==0.10.1
+tmdbv3api==1.7.6
+flask-paginate
